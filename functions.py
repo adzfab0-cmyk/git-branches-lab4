@@ -2,6 +2,8 @@
 
 import numpy as np
 
+from array_io import show_array
+
 
 # Cyrillic letters that look like Latin ones (the user may type them).
 LATIN_ALIASES = {"а": "a", "с": "c", "е": "e"}
@@ -42,6 +44,16 @@ def count_positive_above_diagonal(matrix):
     print(count)
 
 
+def swap_first_last_columns(matrix):
+    """Function 19: swap the first and the last column (on a copy)."""
+    result = matrix.copy()
+    result[:, [0, -1]] = result[:, [-1, 0]]
+    print("Исходный массив:")
+    show_array(matrix)
+    print("\nПосле обмена первого и последнего столбцов:")
+    show_array(result)
+
+
 FUNCTIONS = {
     "a": (
         "Индексы отрицательных элементов массива (функция 3)",
@@ -58,7 +70,7 @@ FUNCTIONS = {
     ),
     "d": (
         "Поменять местами первый и последний столбец (функция 19)",
-        not_implemented,
+        swap_first_last_columns,
     ),
     "e": (
         "Сумма положительных элементов в строках без нулей (функция 31)",
