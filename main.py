@@ -45,10 +45,14 @@ def main():
             else:
                 functions_menu(matrix)
         elif choice == "5":
-            break  # exit
+            print("Программа завершена.")
+            break
         else:
             print("Ошибка: выберите пункт от 1 до 5.")
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except (KeyboardInterrupt, EOFError):
+        print("\nПрограмма завершена.")
