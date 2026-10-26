@@ -70,3 +70,12 @@ def create_array_menu(rows, cols):
         if choice == "0":
             return None
         print("Ошибка: выберите 1, 2 или 0.")
+
+
+def show_array(matrix):
+    """Print the array as an aligned table."""
+    rows, cols = matrix.shape
+    print(f"Массив {rows} x {cols}:")
+    width = max(len(str(value)) for value in matrix.flat)
+    for row in matrix:
+        print(" ".join(str(value).rjust(width) for value in row))
