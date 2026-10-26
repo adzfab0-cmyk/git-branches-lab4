@@ -34,6 +34,14 @@ def show_multiples_of_five(matrix):
         print(f"  [{i}][{j}] = {matrix[i, j]}")
 
 
+def count_positive_above_diagonal(matrix):
+    """Function 12: count positive elements above the main diagonal."""
+    upper = np.triu(matrix, k=1)
+    count = int(np.count_nonzero(upper > 0))
+    print("Количество положительных элементов выше главной диагонали:")
+    print(count)
+
+
 FUNCTIONS = {
     "a": (
         "Индексы отрицательных элементов массива (функция 3)",
@@ -46,7 +54,7 @@ FUNCTIONS = {
     "c": (
         "Количество положительных элементов выше главной диагонали "
         "(функция 12)",
-        not_implemented,
+        count_positive_above_diagonal,
     ),
     "d": (
         "Поменять местами первый и последний столбец (функция 19)",
