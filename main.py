@@ -1,5 +1,7 @@
 """Главное меню программы для работы с двумерным массивом."""
 
+from array_io import ask_size
+
 STUB = "Этот пункт меню пока не реализован."
 
 
@@ -15,11 +17,15 @@ def print_menu():
 
 def main():
     """Run the main menu loop."""
+    rows = cols = None
+    matrix = None
     while True:
         print_menu()
         choice = input("Выберите пункт меню: ").strip()
         if choice == "1":
-            print(STUB)  # size
+            rows, cols = ask_size()
+            matrix = None
+            print(f"Размер массива: {rows} (строк) x {cols} (столбцов).")
         elif choice == "2":
             print(STUB)  # create
         elif choice == "3":
