@@ -1,5 +1,8 @@
 """Функции обработки массива (вариант 3: функции 3, 5, 12, 19, 31)."""
 
+import numpy as np
+
+
 # Cyrillic letters that look like Latin ones (the user may type them).
 LATIN_ALIASES = {"а": "a", "с": "c", "е": "e"}
 
@@ -9,10 +12,21 @@ def not_implemented(matrix):
     print("Эта функция пока не реализована.")
 
 
+def show_negative_indices(matrix):
+    """Function 3: print the indices of all negative elements."""
+    rows, cols = np.where(matrix < 0)
+    if rows.size == 0:
+        print("Отрицательных элементов в массиве нет.")
+        return
+    print("Отрицательные элементы (индексы с нуля):")
+    for i, j in zip(rows, cols):
+        print(f"  [{i}][{j}] = {matrix[i, j]}")
+
+
 FUNCTIONS = {
     "a": (
         "Индексы отрицательных элементов массива (функция 3)",
-        not_implemented,
+        show_negative_indices,
     ),
     "b": (
         "Элементы, кратные 5, и их индексы (функция 5)",
