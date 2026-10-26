@@ -9,11 +9,6 @@ from array_io import show_array
 LATIN_ALIASES = {"а": "a", "с": "c", "е": "e"}
 
 
-def not_implemented(matrix):
-    """Placeholder for functions that are not written yet."""
-    print("Эта функция пока не реализована.")
-
-
 def show_negative_indices(matrix):
     """Function 3: print the indices of all negative elements."""
     rows, cols = np.where(matrix < 0)

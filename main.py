@@ -3,8 +3,6 @@
 from array_io import ask_size, create_array_menu, show_array
 from functions import functions_menu
 
-STUB = "Этот пункт меню пока не реализован."
-
 
 def print_menu():
     """Print the main menu."""
