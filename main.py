@@ -1,6 +1,6 @@
 """Главное меню программы для работы с двумерным массивом."""
 
-from array_io import ask_size, create_array_menu
+from array_io import ask_size, create_array_menu, show_array
 
 STUB = "Этот пункт меню пока не реализован."
 
@@ -34,7 +34,10 @@ def main():
                 if created is not None:
                     matrix = created
         elif choice == "3":
-            print(STUB)  # view
+            if matrix is None:
+                print("Массив ещё не создан (пункт 2).")
+            else:
+                show_array(matrix)
         elif choice == "4":
             print(STUB)  # functions
         elif choice == "5":
