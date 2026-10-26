@@ -23,6 +23,17 @@ def show_negative_indices(matrix):
         print(f"  [{i}][{j}] = {matrix[i, j]}")
 
 
+def show_multiples_of_five(matrix):
+    """Function 5: print elements divisible by 5 together with indices."""
+    rows, cols = np.where(matrix % 5 == 0)
+    if rows.size == 0:
+        print("Элементов, кратных 5, в массиве нет.")
+        return
+    print("Элементы, кратные 5 (индексы с нуля):")
+    for i, j in zip(rows, cols):
+        print(f"  [{i}][{j}] = {matrix[i, j]}")
+
+
 FUNCTIONS = {
     "a": (
         "Индексы отрицательных элементов массива (функция 3)",
@@ -30,7 +41,7 @@ FUNCTIONS = {
     ),
     "b": (
         "Элементы, кратные 5, и их индексы (функция 5)",
-        not_implemented,
+        show_multiples_of_five,
     ),
     "c": (
         "Количество положительных элементов выше главной диагонали "
