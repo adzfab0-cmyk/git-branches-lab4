@@ -54,6 +54,16 @@ def swap_first_last_columns(matrix):
     show_array(result)
 
 
+def sum_positive_in_rows_without_zeros(matrix):
+    """Function 31: sum positive elements of rows that have no zeros."""
+    mask = ~np.any(matrix == 0, axis=1)
+    rows_without_zeros = np.flatnonzero(mask)
+    selected = matrix[mask]
+    total = int(selected[selected > 0].sum())
+    print(f"Строки без нулевых элементов: {rows_without_zeros.tolist()}")
+    print(f"Сумма положительных элементов в этих строках: {total}")
+
+
 FUNCTIONS = {
     "a": (
         "Индексы отрицательных элементов массива (функция 3)",
@@ -74,7 +84,7 @@ FUNCTIONS = {
     ),
     "e": (
         "Сумма положительных элементов в строках без нулей (функция 31)",
-        not_implemented,
+        sum_positive_in_rows_without_zeros,
     ),
 }
 
