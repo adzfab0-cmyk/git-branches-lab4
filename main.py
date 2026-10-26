@@ -1,6 +1,6 @@
 """Главное меню программы для работы с двумерным массивом."""
 
-from array_io import ask_size
+from array_io import ask_size, create_array_menu
 
 STUB = "Этот пункт меню пока не реализован."
 
@@ -27,7 +27,12 @@ def main():
             matrix = None
             print(f"Размер массива: {rows} (строк) x {cols} (столбцов).")
         elif choice == "2":
-            print(STUB)  # create
+            if rows is None:
+                print("Сначала задайте размер массива (пункт 1).")
+            else:
+                created = create_array_menu(rows, cols)
+                if created is not None:
+                    matrix = created
         elif choice == "3":
             print(STUB)  # view
         elif choice == "4":
